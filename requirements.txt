@@ -1,0 +1,29 @@
+# Manipulation des données
+pandas
+numpy
+
+# Machine Learning
+scikit-learn
+imblearn  # SMOTE inclus via imbalanced-learn
+joblib
+xgboost
+
+# FastAPI et serveur
+fastapi
+uvicorn
+
+# Monitoring des métriques
+prometheus-fastapi-instrumentator
+
+# Gestion des dérives et rapports
+evidently
+matplotlib
+
+# Logs et gestion des erreurs
+loguru
+
+# Docker (si nécessaire pour des scripts Python gérant les conteneurs)
+docker
+python-dotenv
+
+pytest
