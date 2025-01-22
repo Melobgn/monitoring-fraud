@@ -3,8 +3,8 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 # Chemins des fichiers
-MODEL_PATH = "/home/utilisateur/Documents/monitoring-app/models/fraud_detection_model.pkl"
-SCALER_PATH = "/home/utilisateur/Documents/monitoring-app/models/scaler.pkl"
+MODEL_PATH = "../models/fraud_detection_model.pkl"
+SCALER_PATH = "../models/scaler.pkl"
 
 # Charger le modèle et le scaler
 model = joblib.load(MODEL_PATH)

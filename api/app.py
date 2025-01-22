@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from prometheus_fastapi_instrumentator import Instrumentator
 from .schemas import Transaction
 from .model import predict_fraud
 import pandas as pd
@@ -8,8 +9,10 @@ import traceback
 # Initialisation de l'application FastAPI
 app = FastAPI()
 
+# Ajouter immédiatement l'instrumentation Prometheus
+Instrumentator().instrument(app).expose(app)
 
-LOG_CSV_PATH = "/home/utilisateur/Documents/monitoring-app/data/api_requests_log.csv"
+LOG_CSV_PATH = "../data/api_requests_log.csv"
 
 @app.post("/predict")
 def predict(transaction: Transaction):
@@ -42,3 +45,4 @@ def predict(transaction: Transaction):
 @app.get("/")
 def root():
     return {"message": "API de prédiction pour la détection de fraudes"}
+

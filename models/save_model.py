@@ -27,19 +27,27 @@ def save_model(model, model_path):
     except Exception as e:
         print(f"Erreur lors de la sauvegarde du modèle : {e}")
 
-# Sauvegarder le jeu de données de référence
-def save_reference_data(X_train, reference_data_path):
-    try:
-        ensure_directory_exists(reference_data_path)
-        if isinstance(X_train, pd.DataFrame):
-            reference_data = X_train
-        else:
-            reference_data = pd.DataFrame(X_train, columns=[f"V{i}" for i in range(1, X_train.shape[1] + 1)])
-        
-        reference_data.to_csv(reference_data_path, index=False)
-        print(f"Jeu de données de référence sauvegardé dans {reference_data_path}")
-    except Exception as e:
-        print(f"Erreur lors de la sauvegarde des données de référence : {e}")
+# # Sauvegarder le jeu de données de référence
+# def save_reference_data(X_train, y_train, reference_data_path):
+#     try:
+#         # Vérifier que le répertoire existe
+#         ensure_directory_exists(reference_data_path)
+
+#         # Combiner les features (X_train) et la target (y_train)
+#         if isinstance(X_train, pd.DataFrame):
+#             reference_data = X_train.copy()
+#         else:
+#             reference_data = pd.DataFrame(X_train, columns=[f"V{i}" for i in range(1, X_train.shape[1] + 1)])
+
+#         # Ajouter la colonne 'target' (y_train)
+#         reference_data["target"] = y_train.values if hasattr(y_train, "values") else y_train
+
+#         # Sauvegarder les données de référence
+#         reference_data.to_csv(reference_data_path, index=False)
+#         print(f"Jeu de données de référence sauvegardé dans {reference_data_path}")
+#     except Exception as e:
+#         print(f"Erreur lors de la sauvegarde des données de référence : {e}")
+
 
 if __name__ == "__main__":
     print("Chargement des données temporaires...")
@@ -48,7 +56,7 @@ if __name__ == "__main__":
     print("Sauvegarde du modèle final...")
     save_model(model, FINAL_MODEL_PATH)
 
-    print("Sauvegarde du jeu de données de référence...")
-    save_reference_data(X_train, REFERENCE_DATA_PATH)
+    # print("Sauvegarde du jeu de données de référence...")
+    # save_reference_data(X_train, y_train, REFERENCE_DATA_PATH)
 
-    print("Modèle et données de référence sauvegardés avec succès.")
+    print("Modèle sauvegardé avec succès.")

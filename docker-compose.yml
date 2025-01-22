@@ -1,0 +1,49 @@
+version: "3.8"
+
+networks:
+  monitoring_network:
+    driver: bridge
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "8000:8000"  # Expose FastAPI sur le port 8000
+    networks:
+      - monitoring_network
+    volumes:
+      - ./api:/app/api           # Monte le dossier `api` dans le conteneur
+      - ./models:/models     # Monte le dossier `models` dans le conteneur
+      - ./data:/data         # Monte le dossier `data` dans le conteneur
+    command: uvicorn api.app:app --host 0.0.0.0 --port 8000
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"  # Expose Prometheus sur le port 9090
+    networks:
+      - monitoring_network
+    volumes:
+      - ./monitoring/prometheus/prometheus_config.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"  # Expose Grafana sur le port 3000
+    networks:
+      - monitoring_network
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning  # Monte tout le provisioning
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=password123
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    ports:
+      - "9100:9100"  # Node Exporter accessible sur ce port
+    networks:
+      - monitoring_network
