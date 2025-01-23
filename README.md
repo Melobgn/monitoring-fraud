@@ -29,11 +29,15 @@ Ce projet contient un système complet de détection de fraudes avec un système
     docker compose up
     ```
 
+
 ### Endpoints de l'API
+
 GET / : Endpoint de test basique.
 POST /predict : Endpoint pour prédire une transaction frauduleuse.
 
+
 ### Tests
+
 Pour exécuter les tests, utilisez pytest :
     ```
     pytest tests/
@@ -46,12 +50,14 @@ Pour exécuter les tests, utilisez pytest :
 
 Prometheus est configuré pour collecter les métriques de l'API et des dérives de données. Il est accessible sur http://localhost:9090.
 
+
 ### Grafana
 
 Grafana est configuré pour visualiser les métriques collectées par Prometheus. Il est accessible sur http://localhost:3000 avec les identifiants par défaut :
 
 Utilisateur : admin
 Mot de passe : password123
+
 
 ### Evidently 
 
@@ -106,6 +112,8 @@ Evidently est utilisé pour générer des rapports de dérive de données. Le se
 - `README.md` : Documentation du projet
 
 - `requirements.txt` : Dépendances Python du projet
+
+
 
 
 ## Explications des composants en détails
