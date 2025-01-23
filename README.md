@@ -9,7 +9,7 @@ Ce projet contient un système complet de détection de fraudes avec un système
 
 1. Clonez le dépôt :
    ```
-   git clone <URL_DU_DEPOT>
+   git clone git@github.com:Melobgn/monitoring-fraud.git
    cd monitoring-app
 
    ```
