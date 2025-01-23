@@ -124,6 +124,7 @@ Le dossier api/ contient le code source de l'API, développée avec FastAPI.
 app.py : Point d'entrée de l'API. Contient les routes principales et les intégrations.
 schemas.py : Définitions des schémas Pydantic pour valider les entrées.
 model.py : Gère les prédictions du modèle de machine learning.
+
 2. Données
 Le dossier data/ contient :
 
