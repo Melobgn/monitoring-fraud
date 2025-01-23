@@ -33,7 +33,7 @@ Ce projet contient un système complet de détection de fraudes avec un système
 GET / : Endpoint de test basique.
 POST /predict : Endpoint pour prédire une transaction frauduleuse.
 
-# Tests
+### Tests
 Pour exécuter les tests, utilisez pytest :
     ```
     pytest tests/
@@ -60,42 +60,52 @@ Evidently est utilisé pour générer des rapports de dérive de données. Le se
 
 ## Structure du projet
 
-.
-├── api/                      # Contient le code de l'API FastAPI
-│   ├── app.py                # Point d'entrée principal de l'API
-│   ├── schemas.py            # Définitions des schémas Pydantic
-│   ├── model.py              # Gestion du modèle de machine learning
-│   └── __init__.py           # Fichier d'initialisation
-├── data/                     # Données utilisées pour l'entraînement et le monitoring
-│   ├── creditcard.csv        # Jeu de données original (fraudes de carte de crédit)
-│   ├── reference_data.csv    # Jeu de données de référence pour Evidently AI
-│   └── production_data.csv   # Données fictives de production générées
-├── grafana/                  # Configuration pour Grafana
-│   ├── provisioning/         # Répertoire pour les dashboards et sources de données
-│   │   ├── dashboards/       # Dashboards Grafana
-│   │   │   ├── dashboard.yml # Configuration de chargement des dashboards
-│   │   │   └── grafana_dashboard.json # Modèle du tableau de bord Grafana
-│   │   └── datasources/      # Sources de données Grafana
-│   │       └── config.yml    # Configuration des sources Prometheus
-├── models/                   # Contient les modèles entraînés et leurs métadonnées
-│   ├── temp_model_data.pkl   # Modèle et données de test sauvegardés temporairement
-│   ├── scaler.pkl            # Scaler utilisé pour normaliser les données
-│   └── fraud_detection_model.pkl # Modèle final de détection de fraude
-├── monitoring/               # Code lié au monitoring
-│   ├── evidently/            # Scripts Evidently AI
-│   │   ├── evidently_report.py # Génère un rapport Evidently
-│   │   └── __init__.py       # Fichier d'initialisation
-│   └── prometheus/           # Configuration Prometheus
-│       └── prometheus_config.yml # Configuration de Prometheus pour les métriques
-├── tests/                    # Contient les tests unitaires
-│   ├── test_api.py           # Tests pour l'API FastAPI
-│   └── __init__.py           # Fichier d'initialisation
-├── venv/                     # Environnement virtuel Python
-├── .gitignore                # Fichiers à ignorer par Git
-├── dashboard.png             # Capture d'écran du tableau de bord Grafana
-├── docker-compose.yml        # Configuration Docker pour tout le projet
-├── README.md                 # Documentation du projet
-└── requirements.txt          # Dépendances Python du projet
+- **api/** : Contient le code de l'API FastAPI
+  - `app.py` : Point d'entrée principal de l'API
+  - `schemas.py` : Définitions des schémas Pydantic
+  - `model.py` : Gestion du modèle de machine learning
+  - `__init__.py` : Fichier d'initialisation
+
+- **data/** : Données utilisées pour l'entraînement et le monitoring
+  - `creditcard.csv` : Jeu de données original (fraudes de carte de crédit)
+  - `reference_data.csv` : Jeu de données de référence pour Evidently AI
+  - `production_data.csv` : Données fictives de production générées
+
+- **grafana/** : Configuration pour Grafana
+  - **provisioning/** : Répertoire pour les dashboards et sources de données
+    - **dashboards/** : Dashboards Grafana
+      - `dashboard.yml` : Configuration de chargement des dashboards
+      - `grafana_dashboard.json` : Modèle du tableau de bord Grafana
+    - **datasources/** : Sources de données Grafana
+      - `config.yml` : Configuration des sources Prometheus
+
+- **models/** : Contient les modèles entraînés et leurs métadonnées
+  - `temp_model_data.pkl` : Modèle et données de test sauvegardés temporairement
+  - `scaler.pkl` : Scaler utilisé pour normaliser les données
+  - `fraud_detection_model.pkl` : Modèle final de détection de fraude
+
+- **monitoring/** : Code lié au monitoring
+  - **evidently/** : Scripts Evidently AI
+    - `evidently_report.py` : Génère un rapport Evidently
+    - `__init__.py` : Fichier d'initialisation
+  - **prometheus/** : Configuration Prometheus
+    - `prometheus_config.yml` : Configuration de Prometheus pour les métriques
+
+- **tests/** : Contient les tests unitaires
+  - `test_api.py` : Tests pour l'API FastAPI
+  - `__init__.py` : Fichier d'initialisation
+
+- **venv/** : Environnement virtuel Python
+
+- `.gitignore` : Fichiers à ignorer par Git
+
+- `dashboard.png` : Capture d'écran du tableau de bord Grafana
+
+- `docker-compose.yml` : Configuration Docker pour tout le projet
+
+- `README.md` : Documentation du projet
+
+- `requirements.txt` : Dépendances Python du projet
 
 
 ## Explications des composants en détails
