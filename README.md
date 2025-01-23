@@ -30,13 +30,13 @@ Ce projet contient un système complet de détection de fraudes avec un système
     ```
 
 
-### Endpoints de l'API
+### Endpoints de l'API
 
 GET / : Endpoint de test basique.
 POST /predict : Endpoint pour prédire une transaction frauduleuse.
 
 
-### Tests
+### Tests
 
 Pour exécuter les tests, utilisez pytest :
     ```
@@ -116,7 +116,7 @@ Evidently est utilisé pour générer des rapports de dérive de données. Le se
 
 
 
-## Explications des composants en détails
+## Explications des composants en détails
 
 1. API
 Le dossier api/ contient le code source de l'API, développée avec FastAPI.
