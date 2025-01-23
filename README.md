@@ -59,7 +59,7 @@ Utilisateur : admin
 Mot de passe : password123
 
 
-### Evidently 
+### Evidently
 
 Evidently est utilisé pour générer des rapports de dérive de données. Le serveur Prometheus pour Evidently est accessible sur http://localhost:8001.
 
