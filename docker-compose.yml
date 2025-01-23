@@ -19,6 +19,19 @@ services:
       - ./data:/data         # Monte le dossier `data` dans le conteneur
     command: uvicorn api.app:app --host 0.0.0.0 --port 8000
 
+  evidently-app:
+    build:
+      context: .
+      dockerfile: monitoring/evidently/Dockerfile
+    ports:
+      - "8001:8001"
+    networks:
+      - monitoring_network
+    volumes:
+      - ./monitoring/evidently:/app  # Monte le dossier `monitoring/evidently` dans /app
+      - ./data:/data  # Monte les données partagées
+    command: python /app/evidently_prometheus.py
+
   prometheus:
     image: prom/prometheus:latest
     ports:
@@ -35,7 +48,7 @@ services:
     networks:
       - monitoring_network
     volumes:
-      - ./grafana/provisioning:/etc/grafana/provisioning  # Monte tout le provisioning
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning  # Monte tout le provisioning
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=password123

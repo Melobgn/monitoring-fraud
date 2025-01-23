@@ -10,6 +10,10 @@ scrape_configs:
     static_configs:
       - targets: ["app:8000"]  # L'adresse de votre API
 
+  - job_name: "evidently-app"
+    static_configs:
+      - targets: ["evidently-app:8001"]
+
   - job_name: "node-exporter"
     static_configs:
       - targets: ["node-exporter:9100"]  # Scrute les métriques du système via Node Exporter

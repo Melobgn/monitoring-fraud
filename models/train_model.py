@@ -41,17 +41,17 @@ def train_model(X_train, y_train):
     model.fit(X_train, y_train)
     return model
 
-# Sauvegarder le dataset de référence
-def save_reference_data(X_train, y_train, model, reference_data_path):
-    reference_data = X_train.copy()
-    reference_data['target'] = y_train.values if hasattr(y_train, "values") else y_train
+def save_reference_data(X_test, y_test, model, reference_data_path):
+    reference_data = X_test.copy()
+    reference_data['target'] = y_test.values if hasattr(y_test, "values") else y_test
 
-    # Ajouter les prédictions
-    reference_data['prediction'] = model.predict(X_train)
+    # Ajouter les prédictions du modèle
+    reference_data['prediction'] = model.predict(X_test)
 
     # Sauvegarder dans un fichier CSV
     reference_data.to_csv(reference_data_path, index=False)
     print(f"Jeu de données de référence sauvegardé dans {reference_data_path}")
+
 
 if __name__ == "__main__":
     print("Chargement et préparation des données...")
@@ -78,4 +78,4 @@ if __name__ == "__main__":
     print(f"Modèle et données sauvegardés temporairement dans {TEMP_MODEL_DATA_PATH}")
 
     print("Génération du dataset de référence...")
-    save_reference_data(X_train_resampled, y_train_resampled, model, REFERENCE_DATA_PATH)
+    save_reference_data(X_test, y_test, model, REFERENCE_DATA_PATH)
