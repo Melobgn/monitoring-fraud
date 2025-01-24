@@ -3,9 +3,9 @@ import pandas as pd
 import os
 
 # Chemins des fichiers
-TEMP_MODEL_DATA_PATH = "/home/utilisateur/Documents/monitoring-app/models/temp_model_data.pkl"
-FINAL_MODEL_PATH = "/home/utilisateur/Documents/monitoring-app/models/fraud_detection_model.pkl"
-REFERENCE_DATA_PATH = "/home/utilisateur/Documents/monitoring-app/data/reference_data.csv"
+TEMP_MODEL_DATA_PATH = "temp_model_data.pkl"
+FINAL_MODEL_PATH = "fraud_detection_model.pkl"
+REFERENCE_DATA_PATH = "../data/reference_data.csv"
 
 # Vérifier et créer les répertoires nécessaires
 def ensure_directory_exists(file_path):

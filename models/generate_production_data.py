@@ -3,9 +3,9 @@ import numpy as np
 import joblib
 
 # Chemins des fichiers
-DATA_PATH = "/home/utilisateur/Documents/monitoring-app/data/creditcard.csv"
-TEMP_MODEL_DATA_PATH = "/home/utilisateur/Documents/monitoring-app/models/temp_model_data.pkl"
-PRODUCTION_DATA_PATH = "/home/utilisateur/Documents/monitoring-app/data/production_data.csv"
+DATA_PATH = "../data/creditcard.csv"
+TEMP_MODEL_DATA_PATH = "temp_model_data.pkl"
+PRODUCTION_DATA_PATH = "../data/production_data.csv"
 
 # Charger le modèle temporaire
 def load_temp_model(temp_model_data_path):

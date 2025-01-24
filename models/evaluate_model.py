@@ -2,8 +2,8 @@ import joblib
 from sklearn.metrics import classification_report, roc_auc_score
 
 # Chemins des fichiers
-TEMP_MODEL_DATA_PATH = "/home/utilisateur/Documents/monitoring-app/models/temp_model_data.pkl"
-SCALER_PATH = "/home/utilisateur/Documents/monitoring-app/models/scaler.pkl"
+TEMP_MODEL_DATA_PATH = "temp_model_data.pkl"
+SCALER_PATH = "scaler.pkl"
 
 # Charger le modèle, le scaler et les données de test
 def load_model_and_data(temp_model_data_path, scaler_path):

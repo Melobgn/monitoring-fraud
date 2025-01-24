@@ -8,7 +8,7 @@ scrape_configs:
 
   - job_name: "app"
     static_configs:
-      - targets: ["app:8000"]  # L'adresse de votre API
+      - targets: ["app:8000"]  # L'adresse de l'API
 
   - job_name: "evidently-app"
     static_configs:

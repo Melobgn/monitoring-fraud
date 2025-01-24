@@ -20,6 +20,13 @@ Ce projet contient un système complet de détection de fraudes avec un système
     pip install -r requirements.txt
     ```
 
+
+3. Téléchargez le dataset credit card fraud detection sur Kaggle (le plus populaire) et mettre creditcard.csv dans le dossier data.
+
+
+4. Lancer les scripts .py du dossier models pour avoir reference_data.csv et production_data.csv dans le dossier data.
+
+
 ## Utilisation
 
 ### Lancer l'application avec Docker
